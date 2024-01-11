@@ -6,6 +6,12 @@ import cmd
 import shlex
 from models import storage
 from models.base_model import BaseModel
+from models.user import User
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
+from models.state import State
+from models.city import City
 
 
 class HBNBCommand(cmd.Cmd):
@@ -13,7 +19,7 @@ class HBNBCommand(cmd.Cmd):
     Console class.
     '''
     prompt = "(hbnb) "
-    my_valid = ["BaseModel"]
+    my_valid = ["BaseModel", "User", "Amenity", "Place", "Review", "State", "City"]
 
     def emptyline(self):
         '''
@@ -43,8 +49,8 @@ class HBNBCommand(cmd.Cmd):
         elif cmd[0] not in self.my_valid:
             print("** class doesn't exist **")
         else:
-            new = BaseModel()
-            new.save()
+            new = eval(f"{cmd[0]}()")
+            storage.save()
             print(new.id)
 
     def do_show(self, arg):
