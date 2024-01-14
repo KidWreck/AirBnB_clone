@@ -19,7 +19,8 @@ class HBNBCommand(cmd.Cmd):
     Console class.
     '''
     prompt = "(hbnb) "
-    my_valid = ["BaseModel", "User", "Amenity", "Place", "Review", "State", "City"]
+    my_valid = ["BaseModel", "User", "Amenity",
+                "Place", "Review", "State", "City"]
 
     def emptyline(self):
         '''
