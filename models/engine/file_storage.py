@@ -56,7 +56,7 @@ class FileStorage:
                     for key, value in my_obj.items():
                         cls_name, obj_id = key.split(".")
                         any_cls = eval(cls_name)
-                        acopy = any_cls(**args)
+                        acopy = any_cls(**value)
                         FileStorage.__objects[key] = acopy
                 except Exception:
                     pass
